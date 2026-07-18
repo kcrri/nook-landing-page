@@ -1,0 +1,343 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phone {
+  width: 250px;
+  height: 510px;
+  background: var(--color-charcoal);
+  border-radius: 36px;
+  border: 2px solid rgba(255,255,255,0.08);
+  position: relative;
+  transform: perspective(900px) rotateY(-18deg) rotateX(6deg) rotateZ(1deg);
+  transform-style: preserve-3d;
+  box-shadow: var(--shadow-phone);
+  transition: transform 0.4s ease;
+  overflow: hidden;
+}
+
+.phone:hover {
+  transform: perspective(900px) rotateY(-10deg) rotateX(3deg) rotateZ(0.5deg);
+}
+
+.notch {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 14px;
+  background: var(--color-charcoal);
+  border-radius: var(--radius-pill);
+  z-index: 10;
+}
+
+.screen {
+  position: absolute;
+  inset: 4px;
+  background: var(--color-warm-white);
+  border-radius: 33px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.statusBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 18px 2px;
+  flex-shrink: 0;
+}
+
+.statusTime {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: var(--color-charcoal);
+}
+
+.statusIcons {
+  font-size: 0.45rem;
+  color: var(--color-charcoal);
+  letter-spacing: 2px;
+}
+
+.statusIcon {
+  font-size: 0.45rem;
+  color: var(--color-charcoal);
+}
+
+.appHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 14px 6px;
+  flex-shrink: 0;
+}
+
+.appLogo {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  letter-spacing: -0.03em;
+}
+
+.appTabs {
+  display: flex;
+  gap: 4px;
+  background: var(--color-neutral);
+  padding: 2px;
+  border-radius: var(--radius-pill);
+}
+
+.appTab {
+  font-size: 0.55rem;
+  font-weight: 500;
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+  color: var(--color-taupe);
+  cursor: pointer;
+}
+
+.appTabActive {
+  background: var(--color-charcoal);
+  color: var(--color-warm-white);
+}
+
+/* Map */
+.mapView {
+  flex: 1;
+  position: relative;
+  background: #e8ddd0;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.mapGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2px;
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+}
+
+.mapBlock {
+  border-radius: 3px;
+}
+
+.blockLg { border-radius: 4px; }
+.blockMd { border-radius: 3px; }
+.blockSm { border-radius: 2px; }
+
+.mapPin {
+  position: absolute;
+  top: 40%;
+  left: 38%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.mapPinDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-brick);
+  border: 2px solid white;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.mapNeighbourhood {
+  position: absolute;
+  bottom: 6px;
+  left: 8px;
+  font-size: 0.5rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  background: rgba(250, 246, 241, 0.88);
+  padding: 2px 6px;
+  border-radius: var(--radius-pill);
+}
+
+/* Listing card */
+.listingCard {
+  background: var(--color-warm-white);
+  border-radius: 14px 14px 0 0;
+  padding: 10px 10px 6px;
+  box-shadow: 0 -4px 16px rgba(31,27,24,0.08);
+  flex-shrink: 0;
+}
+
+.listingPhoto {
+  height: 64px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #c4b5a5 0%, #b09880 100%);
+  margin-bottom: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.listingPhoto::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 20px,
+    rgba(255,255,255,0.08) 20px,
+    rgba(255,255,255,0.08) 22px
+  );
+}
+
+.listingInfo { padding: 0 2px; }
+
+.listingHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.listingPrice {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--color-charcoal);
+}
+
+.listingBadge {
+  font-size: 0.5rem;
+  font-weight: 600;
+  color: var(--color-brick);
+  background: rgba(156, 62, 31, 0.08);
+  padding: 1px 5px;
+  border-radius: var(--radius-pill);
+}
+
+.listingAddress {
+  font-size: 0.5625rem;
+  color: var(--color-taupe);
+  margin-bottom: 4px;
+}
+
+.listingTags {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 0.45rem;
+  font-weight: 500;
+  color: var(--color-charcoal);
+  background: var(--color-neutral);
+  padding: 1px 5px;
+  border-radius: var(--radius-pill);
+}
+
+.swipeRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+  padding-top: 2px;
+}
+
+.swipeBtn {
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  transition: transform 0.15s ease;
+}
+
+.swipeBtn:hover {
+  transform: scale(1.08);
+}
+
+.swipeNo {
+  width: 32px;
+  height: 32px;
+  font-size: 0.625rem;
+  background: var(--color-neutral);
+  color: var(--color-taupe);
+}
+
+.swipeAsk {
+  flex: 1;
+  height: 28px;
+  font-size: 0.5625rem;
+  background: var(--color-charcoal);
+  color: var(--color-warm-white);
+}
+
+.swipeYes {
+  width: 32px;
+  height: 32px;
+  font-size: 0.75rem;
+  background: rgba(156, 62, 31, 0.1);
+  color: var(--color-brick);
+}
+
+.homeBar {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: rgba(255,255,255,0.3);
+  border-radius: var(--radius-pill);
+  z-index: 10;
+}
+
+.phoneShadow {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 30px;
+  background: rgba(31, 27, 24, 0.15);
+  filter: blur(20px);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .phone {
+    width: 200px;
+    height: 408px;
+    transform: perspective(900px) rotateY(-6deg) rotateX(3deg);
+  }
+}
+
+@media (max-width: 400px) {
+  .phone {
+    width: 170px;
+    height: 347px;
+    border-radius: 28px;
+    transform: perspective(900px) rotateY(-4deg) rotateX(2deg);
+  }
+
+  .screen {
+    border-radius: 25px;
+  }
+}
+
+@media (max-width: 340px) {
+  .phone {
+    width: 150px;
+    height: 306px;
+    border-radius: 24px;
+    transform: none;
+    box-shadow: 0 12px 40px rgba(31, 27, 24, 0.2);
+  }
+}

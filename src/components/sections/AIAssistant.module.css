@@ -1,0 +1,111 @@
+.section {
+  padding-block: var(--section-v);
+  background-color: var(--color-warm-white);
+  overflow: hidden;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.headline {
+  font-size: clamp(1.625rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--color-charcoal);
+}
+
+.subheadline {
+  font-size: clamp(0.9375rem, 2vw, 1.0625rem);
+  color: var(--color-taupe);
+  line-height: 1.7;
+}
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-top: var(--space-3);
+}
+
+.featureItem {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+
+.featureDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-brick);
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+.featureTitle {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-1);
+}
+
+.featureDesc {
+  font-size: 0.9rem;
+  color: var(--color-taupe);
+  line-height: 1.65;
+}
+
+.chatColumn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+}
+
+.chatDecoration {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.decorationCard {
+  position: absolute;
+  background: var(--color-neutral);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-neutral-dark);
+}
+
+.decorationCard:nth-child(1) {
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  top: 12px;
+  left: 14px;
+  transform: rotate(2deg);
+}
+
+.decorationCard:nth-child(2) {
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  top: 22px;
+  left: 24px;
+  transform: rotate(4deg);
+}
+
+/* Single column: hide decoration cards (they clip oddly) */
+@media (max-width: 720px) {
+  .decorationCard { display: none; }
+}

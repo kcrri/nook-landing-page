@@ -1,0 +1,194 @@
+.section {
+  padding-block: var(--section-v);
+  background-color: var(--color-warm-white);
+  border-top: 1px solid var(--color-neutral-dark);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-brick);
+}
+
+.headline {
+  font-size: clamp(1.625rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--color-charcoal);
+}
+
+.body {
+  font-size: clamp(0.9375rem, 2vw, 1.0625rem);
+  color: var(--color-taupe);
+  line-height: 1.7;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.storeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0.75rem 1.375rem;
+  background: var(--color-charcoal);
+  color: var(--color-warm-white);
+  border-radius: var(--radius-pill);
+  border: 1.5px solid transparent;
+  cursor: default;
+  transition: background-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  min-height: 52px;
+}
+
+.storeBtn::after {
+  content: 'Soon';
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-brick);
+  background: rgba(156, 62, 31, 0.12);
+  padding: 1px 5px;
+  border-radius: var(--radius-pill);
+}
+
+.storeLogo {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+.storeBtnText {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.storeBtnSub {
+  font-size: 0.625rem;
+  opacity: 0.55;
+  letter-spacing: 0.02em;
+}
+
+.storeBtnMain {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Phone visual — only show when there's enough room */
+.visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+.phoneStack {
+  position: relative;
+  width: 180px;
+  height: 360px;
+}
+
+.phonePlaceholder {
+  position: absolute;
+  width: 180px;
+  height: 360px;
+  border-radius: 30px;
+  border: 2px solid var(--color-neutral-dark);
+}
+
+.phoneBack {
+  transform: rotate(6deg) translate(12px, 8px);
+  background: var(--color-neutral);
+  z-index: 0;
+}
+
+.phoneFront {
+  transform: rotate(-2deg);
+  background: var(--color-charcoal);
+  z-index: 1;
+  box-shadow: var(--shadow-phone);
+}
+
+.phoneScreen {
+  position: absolute;
+  inset: 4px;
+  background: var(--color-warm-white);
+  border-radius: 27px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+}
+
+.phoneNotch {
+  width: 56px;
+  height: 10px;
+  background: var(--color-charcoal);
+  border-radius: var(--radius-pill);
+  margin: 0 auto 16px;
+}
+
+.phoneContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 4px 0;
+}
+
+.phoneBar {
+  height: 10px;
+  background: var(--color-neutral-dark);
+  border-radius: var(--radius-pill);
+}
+
+.phoneCard {
+  height: 100px;
+  background: var(--color-neutral);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-neutral-dark);
+  margin: 4px 0;
+}
+
+/* When the auto-fit grid goes single-column, hide the phone visual */
+@media (max-width: 700px) {
+  .visual { display: none; }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .storeBtn {
+    justify-content: center;
+    width: 100%;
+  }
+}

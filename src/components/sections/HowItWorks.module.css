@@ -1,0 +1,136 @@
+/* Tall section gives each card its own scroll zone.
+   Height scales with the number of cards so the pacing feels the same everywhere. */
+.section {
+  height: 300vh;
+  background-color: var(--color-neutral);
+  position: relative;
+}
+
+/* Pins to the viewport while scrolling through the tall section */
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: clamp(4rem, 10vh, 6rem) var(--section-h) clamp(2rem, 6vh, 4rem);
+}
+
+.inner {
+  width: 100%;
+  max-width: 560px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  text-align: center;
+  max-width: 480px;
+  margin-bottom: clamp(1.75rem, 5vh, 3rem);
+}
+
+.headline {
+  font-size: clamp(1.625rem, 4.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin: var(--space-4) 0 var(--space-3);
+  color: var(--color-charcoal);
+}
+
+.subheadline {
+  font-size: clamp(0.9375rem, 2vw, 1rem);
+  color: var(--color-taupe);
+  line-height: 1.6;
+}
+
+/* ── Swipe deck ── */
+.deck {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  /* Fluid height: never clips content, never overflows the sticky viewport */
+  height: clamp(230px, 38vh, 300px);
+  margin-inline: auto;
+}
+
+.card {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-warm-white);
+  border-radius: var(--radius-xl);
+  padding: clamp(1.5rem, 5vw, 2.25rem);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-neutral-dark);
+  transform-origin: center bottom;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+  will-change: transform, opacity;
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: auto;
+}
+
+.cardNumber {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-brick);
+  letter-spacing: 0.04em;
+}
+
+.cardIcon {
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
+  color: var(--color-charcoal);
+  line-height: 1;
+}
+
+.cardTitle {
+  font-size: clamp(1.25rem, 4.5vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-charcoal);
+  margin: clamp(1.5rem, 6vh, 2.5rem) 0 var(--space-3);
+}
+
+.cardDescription {
+  font-size: clamp(0.875rem, 3.5vw, 0.9375rem);
+  color: var(--color-taupe);
+  line-height: 1.65;
+}
+
+/* Progress dots */
+.dots {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: clamp(1.75rem, 5vh, 2.5rem);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-neutral-dark);
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.dotActive {
+  background: var(--color-brick);
+  transform: scale(1.5);
+}
+
+/* Reduced motion: no transform animation, cards cross-fade instead */
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: opacity 0.3s ease;
+  }
+}

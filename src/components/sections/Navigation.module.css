@@ -1,0 +1,125 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20px 0;
+  transition: background-color 0.25s ease, padding 0.25s ease, box-shadow 0.25s ease;
+}
+
+.scrolled {
+  background-color: rgba(250, 246, 241, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 14px 0;
+  box-shadow: 0 1px 0 var(--color-neutral-dark);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  letter-spacing: -0.03em;
+  flex-shrink: 0;
+}
+
+.logoMark {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.nav {
+  flex: 1;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.navLink {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-taupe);
+  transition: color 0.15s ease;
+}
+
+.navLink:hover {
+  color: var(--color-charcoal);
+}
+
+.navCta {
+  flex-shrink: 0;
+}
+
+/* Mobile menu toggle */
+.menuToggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  margin-left: auto;
+}
+
+.menuToggle span {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: var(--color-charcoal);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+
+.menuOpen span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.menuOpen span:nth-child(2) { opacity: 0; }
+.menuOpen span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* Mobile dropdown */
+.mobileMenu {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6) var(--space-6);
+  background: var(--color-warm-white);
+  border-top: 1px solid var(--color-neutral-dark);
+}
+
+.mobileNavLink {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-charcoal);
+}
+
+@media (max-width: 768px) {
+  .nav, .navCta {
+    display: none;
+  }
+
+  .menuToggle {
+    display: flex;
+  }
+
+  .mobileMenu {
+    display: flex;
+  }
+}
