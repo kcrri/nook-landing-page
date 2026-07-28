@@ -1,12 +1,13 @@
-import type { Step, Stat, AIFeature, ChatMessage, OwnerFeature } from '@/types';
+import type { Step, Stat, AIFeature, ChatMessage, OwnerFeature, FAQItem } from '@/types';
 
 export const NAV_LINKS = [
   { label: 'How it works', href: '#how-it-works' },
   { label: 'For owners', href: '#for-owners' },
+  { label: 'FAQ', href: '#faq' },
 ] as const;
 
 export const HERO_CONTENT = {
-  badge: '',
+  badge: 'Now in private beta — Montreal',
   headline: 'Find your nook',
   subheadline: 'Swipe. Explore. Ask. Move in.',
   body: 'Renting in Montreal is slow, repetitive, and built on platforms nobody trusts. Nook gives you listings you can actually navigate, with an AI that knows each one by heart.',
@@ -123,6 +124,43 @@ export const OWNER_CONTENT = {
     },
   ] satisfies OwnerFeature[],
   cta: 'List your property',
+} as const;
+
+export const FAQ_CONTENT = {
+  badge: 'Common questions',
+  headline: 'Things people ask before signing up',
+  items: [
+    {
+      question: 'Is Nook available right now?',
+      answer:
+        'We are in private beta in Montreal. Join the waitlist and we will reach out when your spot opens up. Toronto is next.',
+    },
+    {
+      question: 'How does the AI actually know about a listing?',
+      answer:
+        'Every listing on Nook includes a structured data layer covering lease terms, pet policy, included utilities, and move-in conditions. The AI reads that layer before answering your question, so its answers are specific to the unit, not generic.',
+    },
+    {
+      question: 'What does it cost for renters?',
+      answer:
+        'Nothing. Nook is free for renters. We charge owners a flat listing fee, not a percentage of rent.',
+    },
+    {
+      question: 'How is this different from Kijiji or Facebook Marketplace?',
+      answer:
+        'Listings on those platforms go stale, contact info is often wrong, and the only way to get answers is to email and wait. Nook verifies listings, keeps them current, and lets you ask questions and get answers instantly.',
+    },
+    {
+      question: 'Can I use Nook if I am a property manager with multiple units?',
+      answer:
+        'Yes. The owner dashboard supports multiple listings under one account. You manage requests, screening info, and messages in one place.',
+    },
+    {
+      question: 'What happens after I send a request to a landlord?',
+      answer:
+        'The owner receives your profile and move-in details. They can accept, decline, or ask a follow-up question through Nook. No personal contact info is shared until both sides agree to connect.',
+    },
+  ] satisfies FAQItem[],
 } as const;
 
 export const FOOTER_CTA_CONTENT = {

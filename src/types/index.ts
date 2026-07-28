@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 export interface Step {
   number: string;
   title: string;
@@ -25,10 +27,15 @@ export interface OwnerFeature {
   description: string;
 }
 
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
 export interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
-  children: React.ReactNode;
+  children: ReactNode;
   onClick?: () => void;
   className?: string;
   href?: string;
@@ -36,26 +43,7 @@ export interface ButtonProps {
 }
 
 export interface BadgeProps {
-  children: React.ReactNode;
+  children: ReactNode;
   variant?: 'default' | 'accent' | 'dark';
   className?: string;
-}
-
-export interface CardProps {
-  children: React.ReactNode;
-  className?: string;
-  elevated?: boolean;
-  as?: string;
-}
-
-export interface StepCardProps extends Step {
-  index: number;
-  isActive?: boolean;
-}
-
-export interface StatItemProps extends Stat {}
-
-export interface ThreeSceneOptions {
-  colorHex: string[];
-  shapeCount: number;
 }
